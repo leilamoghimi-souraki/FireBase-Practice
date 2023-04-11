@@ -2,15 +2,16 @@ import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button } from "../components/Index";
 import { initializeApp } from "firebase/app";
+import { useAuth } from "../hook/useAuth";
 
 const App: FC = () => {
-    const signOut= ()=>{
-        initializeApp.auth().signOut();
-    }
+    const {user}= useAuth();
+    
+
     return (
         <View style={styles.container}>
-            <Text>Home</Text>
-            <Button title="Sign Out" onPress={signOut}/>
+            <Text>Welcome {user?.email}!</Text>
+            {/* <Button title="Sign Out" onPress={useAuth}/> */}
         </View>
     )
 }

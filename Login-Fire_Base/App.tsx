@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import './src/constants/FireBase';
+import RootNavigation from './src/navigation';
+import { NavigationContainer } from '@react-navigation/native';
 
-import MainNav from './src/navigation/MainNavigation';
+
 
 export default function App() {
   return (
-    <MainNav />
+    <NavigationContainer>
+      <RootNavigation />
+    </NavigationContainer>
+
   );
 }
 
