@@ -4,13 +4,10 @@ import { Button, Input } from "../components/Index";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from "../constants/FireBase";
 import firebase from "firebase/compat/app";
-import { Login } from "./Index";
-import { RootStackParamList } from "../navigation";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
 
-export default function SignUp({ navigation }: Props) {
+
+export default function SignUp( Props: any) {
     const [name, setName] = useState<string | null>(null);
     const [email, setEmail] = useState<string | null>(null);
     const [password, setPassword] = useState<string | null>(null);
@@ -53,7 +50,7 @@ export default function SignUp({ navigation }: Props) {
             <View style={styles.loginText}>
                 <Text style={{ marginHorizontal: 5 }}> Already have an account?</Text>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate("LogIn")}
+                    onPress={() => Props.navigation.navigate("LogIn")}
                     style={{ marginHorizontal: 5 }}
                 >
                     <Text style={{ color: "rgba(81,135,200,1)" }}>Login Here</Text>

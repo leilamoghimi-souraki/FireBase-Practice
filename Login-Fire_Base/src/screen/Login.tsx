@@ -3,12 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { Button, Input } from "../components/Index";
 import firebase from "firebase/compat/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { RootStackParamList } from "../navigation";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'LogIn'>;
-
-export default function LogIn({ navigation }: Props) {
+export default function LogIn(Props: any) {
     const [name, setName] = useState<string | null>(null);
     const [email, setEmail] = useState<string | null>(null);
     const [password, setPassword] = useState<string | null>(null);
@@ -45,7 +41,7 @@ export default function LogIn({ navigation }: Props) {
             <Button title="Login" onPress={signIn} />
             <View style={styles.loginText}>
                 <Text style={{ marginHorizontal: 5 }}> You dont have an account?</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('SignUp')} style={{ marginHorizontal: 5 }}>
+                <TouchableOpacity onPress={() => Props.navigation.navigate('SignUp')} style={{ marginHorizontal: 5 }}>
                     <Text style={{ color: 'rgba(81,135,200,1)' }}>Sign Up Here</Text>
                 </TouchableOpacity>
             </View>
